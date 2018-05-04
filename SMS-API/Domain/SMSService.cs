@@ -14,9 +14,9 @@ namespace SMS.Api.Domain
             _smsRepository = smsRepository;
         }
 
-        public async Task AddNewAsync(Guid id, string message, string phoneNumber, DateTime sendAt)
+        public async Task AddNewAsync(string message, string phoneNumber, DateTime sendAt)
         {
-            var sms = new SMS(id, message, phoneNumber, sendAt);
+            var sms = new SMS(Guid.NewGuid(), message, phoneNumber, sendAt);
             await _smsRepository.AddAsync(sms);
         }
 
