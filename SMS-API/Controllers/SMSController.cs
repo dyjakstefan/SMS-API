@@ -9,7 +9,7 @@ using SMS.Api.Domain;
 namespace SMS.Api.Controllers
 {
     [Produces("application/json")]
-    [Route("api/SMS")]
+    [Route("api/sms")]
     public class SMSController : Controller
     {
         private readonly ISMSService _smsService;
@@ -35,13 +35,12 @@ namespace SMS.Api.Controllers
             return Created("api/SMS", null);
         }
 
-        [HttpDelete("")]
-        public async Task<IActionResult> Delete([FromBody]DeleteSMS request)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
         {
-            await _smsService.RemoveAsync(Guid.Parse(request.Id));
+            await _smsService.RemoveAsync(Guid.Parse(id));
             return NoContent();
         }
-
     }
 
     public class CreateSMS
@@ -50,8 +49,4 @@ namespace SMS.Api.Controllers
         public string PhoneNumber { get; set; }
     }
 
-    public class DeleteSMS
-    {
-        public string Id { get; set; }
-    }
 }
