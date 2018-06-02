@@ -10,10 +10,5 @@ namespace SMS.Api.Domain
         public string ConnectionString { get; set; }
         public string Database { get; set; }
 
-        public MongoSettings()
-        {
-            ConnectionString = "mongodb://localhost:27017";
-            Database = "SMS";
-        }
     }
 }

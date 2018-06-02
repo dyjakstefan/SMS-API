@@ -9,13 +9,11 @@ namespace SMS.Api.Domain
 {
     public class SMSRepository : ISMSRepository, IMongoRepository
     {
-        private readonly IMongoClient _client;
         private readonly IMongoDatabase _database;
 
-        public SMSRepository()
+        public SMSRepository(IMongoDatabase database)
         {
-            _client = new MongoClient("mongodb://localhost:27017");
-            _database = _client.GetDatabase("SMS");
+            _database = database;
         }
 
         public async Task AddAsync(SMS sms)

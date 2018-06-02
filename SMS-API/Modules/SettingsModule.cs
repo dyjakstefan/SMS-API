@@ -4,24 +4,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
 using Microsoft.Extensions.Configuration;
+using SMS.Api.Domain;
 
 namespace SMS.Api.Modules
 {
-    public class ContainerModule : Autofac.Module
+    public class SettingsModule : Autofac.Module
     {
         private readonly IConfiguration _configuration;
 
-        public ContainerModule(IConfiguration configuration)
+        public SettingsModule(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterModule<RepositoryModule>();
-            builder.RegisterModule<MongoModule>();
-            builder.RegisterModule<ServiceModule>();
-            builder.RegisterModule(new SettingsModule(_configuration));
+            builder.RegisterInstance(_configuration.GetSettings<MongoSettings>())
+                .SingleInstance();
         }
     }
 }

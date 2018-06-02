@@ -9,14 +9,14 @@ using SMS.Api.Domain;
 namespace SMS.Api.Controllers
 {
     [Produces("application/json")]
-    [Route("api/sms")]
+    [Route("api/[controller]")]
     public class SMSController : Controller
     {
         private readonly ISMSService _smsService;
 
-        public SMSController()
+        public SMSController(ISMSService smsService)
         {
-            _smsService = new SMSService(new SMSRepository());
+            _smsService = smsService;
         }
 
         [HttpGet]
