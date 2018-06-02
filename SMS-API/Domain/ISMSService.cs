@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SMS.Api.Domain
 {
-    public interface ISMSService
+    public interface ISMSService : IService
     {
         Task AddNewAsync(string message, string phoneNumber, DateTime sendAt);
         Task<SMSDto> GetAsync(Guid id);

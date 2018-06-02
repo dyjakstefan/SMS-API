@@ -9,8 +9,8 @@ namespace SMS.Api.Domain
     {
         private static ISet<SMS> _sms = new HashSet<SMS>()
         {
-            new SMS(Guid.NewGuid(), "Paweł", "123456789", new DateTime(1990,10,10)),
-            new SMS(Guid.NewGuid(), "Nie chce mi się robić tego sprawozdania", "123456789", new DateTime(1990,10,10)),
+            new SMS(Guid.NewGuid(), "Pierwsza wiadomosc", "12345678", new DateTime(1990,10,10)),
+            new SMS(Guid.NewGuid(), "Druga wiadomosc", "12345678", new DateTime(1990,10,10)),
         };
 
         public async Task AddAsync(SMS sms)

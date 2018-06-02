@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SMS.Api.Domain
 {
-    public interface ISMSRepository
+    public interface ISMSRepository : IRepository
     {
         Task<SMS> GetAsync(Guid id);
         Task<IEnumerable<SMS>> GetAllAsync();

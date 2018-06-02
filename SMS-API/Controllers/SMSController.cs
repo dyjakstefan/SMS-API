@@ -16,7 +16,7 @@ namespace SMS.Api.Controllers
 
         public SMSController()
         {
-            _smsService = new SMSService(new InMemeorySMSRepository());
+            _smsService = new SMSService(new SMSRepository());
         }
 
         [HttpGet]
