@@ -10,12 +10,20 @@ using Microsoft.Extensions.Logging;
 
 namespace SMS.Api
 {
+    /// <summary>
+    /// Main class of Application.
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Main method.
+        /// </summary>
+        /// <param name="args"></param>
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
         }
+
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)

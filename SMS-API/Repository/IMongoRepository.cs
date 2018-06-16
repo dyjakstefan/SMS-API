@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace SMS.Api.Domain
 {
-    public interface IRepository
+    /// <summary>
+    /// Markdown interface for mongo database repository.
+    /// </summary>
+    public interface IMongoRepository
     {
     }
 }

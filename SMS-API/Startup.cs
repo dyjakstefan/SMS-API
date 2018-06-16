@@ -14,6 +14,9 @@ using SMS.Api.Modules;
 
 namespace SMS.Api
 {
+    /// <summary>
+    /// This class is for configuring application.
+    /// </summary>
     public class Startup
     {
         public IConfigurationRoot Configuration { get; }
@@ -30,7 +33,11 @@ namespace SMS.Api
             Configuration = builder.Build();
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// This method adds services to the container
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns>Service provider</returns>
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -44,7 +51,12 @@ namespace SMS.Api
             return new AutofacServiceProvider(ApplicationContainer);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// This method configures the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
+        /// <param name="appLifetime"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApplicationLifetime appLifetime)
         {
             if (env.IsDevelopment())

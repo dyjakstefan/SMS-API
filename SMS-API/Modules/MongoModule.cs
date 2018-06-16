@@ -9,8 +9,15 @@ using SMS.Api.Domain;
 
 namespace SMS.Api.Modules
 {
+    /// <summary>
+    /// Module for Mongo Database component.
+    /// </summary>
     public class MongoModule : Autofac.Module
     {
+        /// <summary>
+        /// Register client for Mongo Database and load settings for Mongo.
+        /// </summary>
+        /// <param name="builder">Container for modules</param>
         protected override void Load(ContainerBuilder builder)
         {
             builder.Register((c, p) =>

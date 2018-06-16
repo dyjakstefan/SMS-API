@@ -5,7 +5,11 @@ using System.Threading.Tasks;
 
 namespace SMS.Api.Domain
 {
-    public interface IMongoRepository
+
+    /// <summary>
+    /// Markdown interface repository.
+    /// </summary>
+    public interface IRepository
     {
     }
 }
